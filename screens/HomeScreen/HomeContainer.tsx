@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import HomePresenter from "./HomePresenter";
 import { youtubeApi } from "../../api";
 
-const HomeContainer = () => {
+const HomeContainer = ( {navigation} ) => {
+  console.log( navigation )
   const [state, setState] = useState({
     videos: [],
     loading: true,
