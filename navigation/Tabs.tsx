@@ -31,7 +31,7 @@ export default () => {
         component={HomeScreen}
         options={{
           tabBarIcon: ({ color }) => (
-            <TabBarIcon name="ios-home" color={color} />
+            <TabBarIcon name="ios-search" color={color} />
           ),
         }}
       />
