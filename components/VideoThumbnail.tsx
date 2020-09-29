@@ -1,43 +1,34 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Image } from "react-native";
 import styled from "styled-components/native";
+import { Text } from "./Themed";
 
-const ThumbnailLink = styled(View)`
-  color: unset;
-  font-size: 13px;
-  &:hover {
-    color: unset;
-    text-decoration: unset;
-  }
-`;
 
 const Container = styled(View)`
-  width: 100%;
-  margin: 5px 0px;
+  flex: 1 1 150px;
+  margin: 5px;
+`;
+
+const ThumbnailLink = styled(View)`
 `;
 
 const ThumbnailImage = styled(Image)`
   width: 100%;
+  height: 150px;
 `;
 
-const TitleText = styled(View)``;
-const ChannelText = styled(View)`
-  color: lightgrey;
-  font-weight: 300;
-  font-size: smaller;
+const TitleText = styled(Text)``;
+const ChannelText = styled(Text)`
 `;
 const ChannelImage = styled(Image)`
-  width: 20px;
-  height: 20px;
-  border-radius: 100%;
 `;
 
 export default ({ id, thumbnailSrc, title, channelId, channelTitle }) => (
   <Container>
-    <ThumbnailLink to={`/video/${id}`}>
-      <ThumbnailImage src={thumbnailSrc} />
-      <TitleText>{title}</TitleText>
-      <ChannelText>{channelTitle}</ChannelText>
-    </ThumbnailLink>
+    <ThumbnailImage source={{uri:thumbnailSrc}} />
+    <TitleText>{title}</TitleText>
+    <ChannelText>{channelTitle}</ChannelText>
+    {/* <ThumbnailLink to={`/video/${id}`}> */}
+    {/* </ThumbnailLink> */}
   </Container>
 );

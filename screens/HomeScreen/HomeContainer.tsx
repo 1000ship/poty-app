@@ -15,7 +15,7 @@ const HomeContainer = ( {navigation} ) => {
       try {
         const {
           data: { items: videos },
-        } = await youtubeApi.getVideos({
+        } = await youtubeApi.getVideos_Test({
           maxResults: 12,
         });
         setState((state) => ({ ...state, videos }));

@@ -1,12 +1,25 @@
 import axios from "axios";
 import testCase from "./testCase.json";
+import {
+  YOUTUBE_API_KEY,
+  YOUTUBE_API_KEY_HW,
+  YOUTUBE_API_KEY_KH,
+  POTY_API_URL,
+} from "react-native-dotenv";
+
+ApiClient.init(
+  YOUTUBE_API_KEY,
+  YOUTUBE_API_KEY_HW,
+  YOUTUBE_API_KEY_KH,
+  POTY_API_URL
+);
 
 const getRandomKey = () =>
   Math.random() < 0.333
     ? Math.random() < 0.5
-      ? process.env.REACT_APP_YOUTUBE_API_KEY
-      : process.env.REACT_APP_YOUTUBE_API_KEY_HW
-    : process.env.REACT_APP_YOUTUBE_API_KEY_KH;
+      ? YOUTUBE_API_KEY
+      : YOUTUBE_API_KEY_HW
+    : YOUTUBE_API_KEY_KH;
 
 const youtubeAxios = axios.create({
   baseURL: "https://www.googleapis.com/youtube/v3/",
@@ -15,10 +28,10 @@ const youtubeAxios = axios.create({
   },
 });
 
-console.log("apikey", process.env.REACT_APP_YOUTUBE_API_KEY_KH);
+console.log("apikey", YOUTUBE_API_KEY_KH);
 
 const potyAxios = axios.create({
-  baseURL: `${process.env.REACT_APP_POTY_API_URL}`,
+  baseURL: `${POTY_API_URL}`,
 });
 
 export const youtubeApi = {

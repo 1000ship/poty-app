@@ -1,6 +1,6 @@
-import React, { useLayoutEffect } from "react";
+import React, {  useLayoutEffect } from "react";
 import { Ionicons } from "@expo/vector-icons";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { BottomTabNavigationProp, createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../screens/HomeScreen";
 import TheaterScreen from "../screens/TheaterScreen";
 import useColorScheme from "../hooks/useColorScheme";
@@ -8,15 +8,15 @@ import Colors from "../constants/Colors";
 
 const Tab = createBottomTabNavigator();
 
-export default ({ navigation, route }) => {
+export default function ( props: BottomTabNavigationProp) {
+  const { navigation, route } = props;
   const colorScheme = useColorScheme();
-  const TabBarIcon = (props: { name: string; color: string }) => (
+  const TabBarIcon = (props: { name: string; color: string; }) => (
     <Ionicons size={30} style={{ marginBottom: -3 }} {...props} />
   );
 
   useLayoutEffect(() => {
-    const currentScreenName =
-      route?.state?.routeNames[route?.state?.index] ?? "Home";
+    const currentScreenName = route?.state?.routeNames[route?.state?.index] ?? "Home";
     navigation?.setOptions({
       title: currentScreenName,
     });
@@ -33,8 +33,7 @@ export default ({ navigation, route }) => {
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="ios-home" color={color} />
           ),
-        }}
-      />
+        }} />
       <Tab.Screen
         name="Theater"
         component={TheaterScreen}
@@ -42,8 +41,7 @@ export default ({ navigation, route }) => {
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="ios-tv" color={color} />
           ),
-        }}
-      />
+        }} />
     </Tab.Navigator>
   );
 };
