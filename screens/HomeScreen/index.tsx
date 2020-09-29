@@ -1,3 +1,3 @@
-import HomeScreenContainer from './HomeScreenContainer';
+import HomeContainer from './HomeContainer';
 
-export default HomeScreenContainer;
+export default HomeContainer;
