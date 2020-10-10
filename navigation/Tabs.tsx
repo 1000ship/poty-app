@@ -36,7 +36,7 @@ export default function ( props: BottomTabNavigationProp) {
         }} />
       <Tab.Screen
         name="Theater2"
-        component={TheaterScreen}
+        component={HomeScreen}
         options={{
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="ios-tv" color={color} />

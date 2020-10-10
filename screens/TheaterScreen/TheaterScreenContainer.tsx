@@ -2,7 +2,10 @@ import React, { useState, useCallback, useRef } from "react";
 import { Alert } from "react-native";
 import TheaterScreenPresenter from "./TheaterScreenPresenter";
 
-const TheaterScreenContainer = () => {
+const TheaterScreenContainer:React.FC = ( {route:{params}} : any ) => {
+
+  const {videoId = "lotCMV_HeVg"} = params as any;
+
   const [playing, setPlaying] = useState(false);
 
   const onStateChange = useCallback((state: String) => {
@@ -18,6 +21,7 @@ const TheaterScreenContainer = () => {
 
   return (
     <TheaterScreenPresenter
+      videoId={videoId}
       playing={playing}
       onStateChange={onStateChange}
       togglePlaying={togglePlaying}

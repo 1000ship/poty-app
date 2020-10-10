@@ -11,21 +11,22 @@ const Container = styled(View)`
 `;
 
 type TheaterScreenPresenterProps = {
+  videoId: string;
   playing: boolean;
   onStateChange: (state: String) => void;
   togglePlaying: () => void;
 };
 
 const TheaterScreenPresenter: React.FC<TheaterScreenPresenterProps> = (props) => {
-  const { playing, onStateChange, togglePlaying } = props;
+  const { videoId, playing, onStateChange, togglePlaying } = props;
   return (
     <Container>
       <YoutubePlayer
         height={300}
         play={playing}
-        videoId={"lotCMV_HeVg"}
+        videoId={videoId}
         onChangeState={onStateChange}
-      ></YoutubePlayer>
+      />
       <Button title={playing ? "pause" : "play"} onPress={togglePlaying} />
     </Container>
   );

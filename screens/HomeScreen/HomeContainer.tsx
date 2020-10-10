@@ -9,9 +9,8 @@ const HomeContainer: React.FC<{ navigation: any }> = ({ navigation }) => {
     error: null,
   });
 
-  const selectVideo = (id: number) => () => {
-    // move to theater view
-    navigation.navigate("Theater", {});
+  const selectVideo = (videoId: number) => () => {
+    navigation.navigate("Theater", {videoId});
   };
 
   useEffect(() => {
