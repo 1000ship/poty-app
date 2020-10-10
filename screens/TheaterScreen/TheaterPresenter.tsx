@@ -10,14 +10,14 @@ const Container = styled(View)`
   height: 100%;
 `;
 
-type TheaterScreenPresenterProps = {
+type TheaterPresenterProps = {
   videoId: string;
   playing: boolean;
   onStateChange: (state: String) => void;
   togglePlaying: () => void;
 };
 
-const TheaterScreenPresenter: React.FC<TheaterScreenPresenterProps> = (props) => {
+const TheaterPresenter: React.FC<TheaterPresenterProps> = (props) => {
   const { videoId, playing, onStateChange, togglePlaying } = props;
   return (
     <Container>
@@ -32,4 +32,4 @@ const TheaterScreenPresenter: React.FC<TheaterScreenPresenterProps> = (props) =>
   );
 };
 
-export default TheaterScreenPresenter;
+export default TheaterPresenter;

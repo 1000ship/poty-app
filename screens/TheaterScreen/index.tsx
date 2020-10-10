@@ -1,3 +1,3 @@
-import TheaterScreenContainer from './TheaterScreenContainer';
+import TheaterContainer from './TheaterContainer';
 
-export default TheaterScreenContainer;
+export default TheaterContainer;

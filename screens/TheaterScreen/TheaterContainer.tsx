@@ -1,8 +1,8 @@
 import React, { useState, useCallback, useRef } from "react";
 import { Alert } from "react-native";
-import TheaterScreenPresenter from "./TheaterScreenPresenter";
+import TheaterPresenter from "./TheaterPresenter";
 
-const TheaterScreenContainer:React.FC = ( {route:{params}} : any ) => {
+const TheaterContainer:React.FC = ( {route:{params}} : any ) => {
 
   const {videoId = "lotCMV_HeVg"} = params as any;
 
@@ -20,13 +20,13 @@ const TheaterScreenContainer:React.FC = ( {route:{params}} : any ) => {
   }, []);
 
   return (
-    <TheaterScreenPresenter
+    <TheaterPresenter
       videoId={videoId}
       playing={playing}
       onStateChange={onStateChange}
       togglePlaying={togglePlaying}
-    ></TheaterScreenPresenter>
+    ></TheaterPresenter>
   );
 };
 
-export default TheaterScreenContainer;
+export default TheaterContainer;
