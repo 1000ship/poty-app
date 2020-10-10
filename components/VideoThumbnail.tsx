@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Image } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import styled from "styled-components/native";
 import { Text } from "./Themed";
 
@@ -23,12 +24,14 @@ const ChannelText = styled(Text)`
 const ChannelImage = styled(Image)`
 `;
 
-export default ({ id, thumbnailSrc, title, channelId, channelTitle }) => (
+export default ({ id, thumbnailSrc, title, channelId, channelTitle, onPress }) => (
   <Container>
-    <ThumbnailImage source={{uri:thumbnailSrc}} />
-    <TitleText>{title}</TitleText>
-    <ChannelText>{channelTitle}</ChannelText>
-    {/* <ThumbnailLink to={`/video/${id}`}> */}
-    {/* </ThumbnailLink> */}
+    <TouchableOpacity onPress={onPress}>
+      <ThumbnailImage source={{uri:thumbnailSrc}} />
+      <TitleText>{title}</TitleText>
+      <ChannelText>{channelTitle}</ChannelText>
+      {/* <ThumbnailLink to={`/video/${id}`}> */}
+      {/* </ThumbnailLink> */}
+    </TouchableOpacity>
   </Container>
 );

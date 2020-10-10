@@ -3,7 +3,7 @@ import { Alert } from "react-native";
 import TheaterScreenPresenter from "./TheaterScreenPresenter";
 
 const TheaterScreenContainer = () => {
-  const [playing, setPlaying] = useState(true);
+  const [playing, setPlaying] = useState(false);
 
   const onStateChange = useCallback((state: String) => {
     if (state === "ended") {

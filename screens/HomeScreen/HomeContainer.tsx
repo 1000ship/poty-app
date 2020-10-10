@@ -2,22 +2,29 @@ import React, { useEffect, useState } from "react";
 import HomePresenter from "./HomePresenter";
 import { youtubeApi } from "../../api";
 
-const HomeContainer = ( {navigation} ) => {
-  console.log( navigation )
+const HomeContainer: React.FC<{ navigation: any }> = ({ navigation }) => {
   const [state, setState] = useState({
     videos: [],
     loading: true,
     error: null,
   });
 
+  const selectVideo = (id: number) => () => {
+    // move to theater view
+    navigation.navigate("Theater", {});
+  };
+
   useEffect(() => {
     (async () => {
       try {
         const {
           data: { items: videos },
-        } = await youtubeApi.getVideos_Test({
-          maxResults: 12,
-        });
+        } = await youtubeApi.getVideos_Test() as {data: {items: object[]}};
+        // const {
+        //   data: { items: videos },
+        // } = await youtubeApi.getVideos({
+        //   maxResults: 12,
+        // });
         setState((state) => ({ ...state, videos }));
       } catch (error) {
         setState((state) => ({ ...state, error }));
@@ -27,7 +34,7 @@ const HomeContainer = ( {navigation} ) => {
     })();
   }, []);
 
-  return <HomePresenter {...state}></HomePresenter>;
+  return <HomePresenter {...state} selectVideo={selectVideo}></HomePresenter>;
 };
 
 export default HomeContainer;

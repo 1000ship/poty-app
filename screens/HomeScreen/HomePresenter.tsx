@@ -19,7 +19,8 @@ type HomePresenterProps = {
 };
 
 const HomePresenter = (props) => {
-  const { videos, loading, error } = props;
+  const { videos, loading, error, selectVideo } = props;
+
   return loading ? (
     <Loading />
   ) : (
@@ -41,6 +42,7 @@ const HomePresenter = (props) => {
                 title={localized.title}
                 channelId={channelId}
                 channelTitle={channelTitle}
+                onPress={selectVideo(id)}
               ></VideoThumbnail>
             );
           })}

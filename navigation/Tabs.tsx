@@ -35,7 +35,7 @@ export default function ( props: BottomTabNavigationProp) {
           ),
         }} />
       <Tab.Screen
-        name="Theater"
+        name="Theater2"
         component={TheaterScreen}
         options={{
           tabBarIcon: ({ color }) => (
