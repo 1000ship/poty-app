@@ -16,14 +16,10 @@ const youtubeAxios = axios.create({
   },
 });
 
-console.log("apikey", process.env.REACT_NATIVE_YOUTUBE_API_KEY_KH);
-
 const potyAxios = axios.create({
-  baseURL: `${process.env.REACT_NATIVE_POTY_API_URL}`,
+  baseURL: `https://poty.ga/`,
 });
 
-
-console.log( testCase2)
 export const youtubeApi = {
   getVideos_Test: () => new Promise( (resolve, reject) => resolve({data:testCase2}) ),
   getVideos: ({
