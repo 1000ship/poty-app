@@ -12,13 +12,14 @@ const VideosContainer = styled(View)`
   flex-wrap: wrap;
 `;
 
-type HomePresenterProps = {
-  videos: [];
+export type HomePresenterProps = {
+  videos: Object[];
   loading: boolean;
-  error: Object;
+  error: Object | null;
+  selectVideo: (videoId: number) => () => void;
 };
 
-const HomePresenter = (props) => {
+const HomePresenter = (props: HomePresenterProps) => {
   const { videos, loading, error, selectVideo } = props;
 
   return loading ? (
@@ -33,7 +34,7 @@ const HomePresenter = (props) => {
             const {
               id,
               snippet: { thumbnails, localized, channelId, channelTitle },
-            } = video;
+            } = video as any;
             return (
               <VideoThumbnail
                 key={i}

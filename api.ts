@@ -2,11 +2,14 @@ import axios from "axios";
 import testCase from "./testCase.json";
 import testCase2 from "./testCase2.json";
 
+console.log("API",process.env.REACT_NATIVE_YOUTUBE_API_KEY);
+console.log("API",process);
+
 const getRandomKey = () =>
   Math.random() < 0.333
     ? Math.random() < 0.5
-      ? process.env.REACT_NATIVE_YOUTUBE_API_KEY
-      : process.env.REACT_NATIVE_YOUTUBE_API_KEY
+      ? process.env.REACT_NATIVE_YOUTUBE_API_KEY_KH
+      : process.env.REACT_NATIVE_YOUTUBE_API_KEY_HW
     : process.env.REACT_NATIVE_YOUTUBE_API_KEY;
 
 const youtubeAxios = axios.create({
@@ -45,9 +48,9 @@ export const youtubeApi = {
     regionCode,
   }: {
     q: string;
-    maxResults: number;
-    pageToken: string;
-    regionCode: string;
+    maxResults?: number;
+    pageToken?: string;
+    regionCode?: string;
   }) =>
     youtubeAxios.get("search", {
       params: {

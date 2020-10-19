@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import HomePresenter from "./HomePresenter";
+import HomePresenter, { HomePresenterProps } from "./HomePresenter";
 import { youtubeApi } from "../../api";
 
 const HomeContainer: React.FC<{ navigation: any }> = ({ navigation }) => {
@@ -24,7 +24,7 @@ const HomeContainer: React.FC<{ navigation: any }> = ({ navigation }) => {
         // } = await youtubeApi.getVideos({
         //   maxResults: 12,
         // });
-        setState((state) => ({ ...state, videos }));
+        setState((state: any) => ({ ...state, videos }));
       } catch (error) {
         setState((state) => ({ ...state, error }));
       } finally {
@@ -33,7 +33,7 @@ const HomeContainer: React.FC<{ navigation: any }> = ({ navigation }) => {
     })();
   }, []);
 
-  return <HomePresenter {...state} selectVideo={selectVideo}></HomePresenter>;
+  return <HomePresenter { ...state } selectVideo={selectVideo}></HomePresenter>;
 };
 
 export default HomeContainer;
