@@ -3,7 +3,7 @@ import testCase from "./testCase.json";
 import testCase2 from "./testCase2.json";
 
 const getRandomKey = () =>
-  Math.random() < 0
+  Math.random() < 0.3333
     ? Math.random() < 0.5
       ? process.env.REACT_NATIVE_YOUTUBE_API_KEY_KH
       : process.env.REACT_NATIVE_YOUTUBE_API_KEY_HW
@@ -27,7 +27,7 @@ export const youtubeApi = {
     regionCode,
   }: {
     maxResults: number;
-    regionCode: string;
+    regionCode?: string;
   }) =>
     youtubeAxios.get("videos", {
       params: {

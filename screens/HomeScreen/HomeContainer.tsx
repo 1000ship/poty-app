@@ -16,14 +16,14 @@ const HomeContainer = ({ navigation } : any) => {
   useEffect(() => {
     (async () => {
       try {
-        const {
-          data: { items: videos },
-        } = await youtubeApi.getVideos_Test() as {data: {items: object[]}};
         // const {
         //   data: { items: videos },
-        // } = await youtubeApi.getVideos({
-        //   maxResults: 12,
-        // });
+        // } = await youtubeApi.getVideos_Test() as {data: {items: object[]}};
+        const {
+          data: { items: videos },
+        } = await youtubeApi.getVideos({
+          maxResults: 12,
+        });
         setState((state: any) => ({ ...state, videos }));
       } catch (error) {
         setState((state) => ({ ...state, error }));
