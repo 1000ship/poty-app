@@ -1,9 +1,8 @@
-import React from 'react';
-import { ScrollView } from 'react-native';
-import styled from 'styled-components/native';
+import React from "react";
+import { ScrollView } from "react-native";
 
-const ScrollContainer = ({children}) => {
-    return <ScrollView>{children}</ScrollView>
-}
+const ScrollContainer = ({ children }: any) => {
+  return <ScrollView>{children}</ScrollView>;
+};
 
 export default ScrollContainer;

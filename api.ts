@@ -2,11 +2,8 @@ import axios from "axios";
 import testCase from "./testCase.json";
 import testCase2 from "./testCase2.json";
 
-console.log("API",process.env.REACT_NATIVE_YOUTUBE_API_KEY);
-console.log("API",process);
-
 const getRandomKey = () =>
-  Math.random() < 0.333
+  Math.random() < 0
     ? Math.random() < 0.5
       ? process.env.REACT_NATIVE_YOUTUBE_API_KEY_KH
       : process.env.REACT_NATIVE_YOUTUBE_API_KEY_HW
@@ -91,3 +88,16 @@ export const highlightApi = {
     return { data: testCase };
   },
 };
+
+
+export const debounce = ( func: Function, delay:number ) => {
+  var timeoutId: NodeJS.Timeout | null = null;
+  return function (...args : any) {
+    if( timeoutId !== null )
+      clearTimeout(timeoutId);
+    timeoutId = setTimeout( () => {
+      func(...args);
+      timeoutId = null;
+    }, delay);
+  }
+}
