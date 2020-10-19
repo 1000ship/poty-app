@@ -2,7 +2,7 @@ import React, {  useLayoutEffect } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { BottomTabNavigationProp, createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../screens/HomeScreen";
-import TheaterScreen from "../screens/TheaterScreen";
+import SearchScreen from "../screens/SearchScreen";
 import useColorScheme from "../hooks/useColorScheme";
 import Colors from "../constants/Colors";
 
@@ -35,11 +35,11 @@ export default function ( props: BottomTabNavigationProp) {
           ),
         }} />
       <Tab.Screen
-        name="Theater2"
-        component={HomeScreen}
+        name="Search"
+        component={SearchScreen}
         options={{
           tabBarIcon: ({ color }) => (
-            <TabBarIcon name="ios-tv" color={color} />
+            <TabBarIcon name="ios-search" color={color} />
           ),
         }} />
     </Tab.Navigator>
