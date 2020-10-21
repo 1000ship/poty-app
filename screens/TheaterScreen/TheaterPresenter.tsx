@@ -5,6 +5,8 @@ import YoutubePlayer from "react-native-youtube-iframe";
 import { Button, Dimensions } from "react-native";
 import Highlight from "./Highlight";
 import ScrollContainer from "../../components/ScrollContainer";
+import Error from "../../components/Error";
+import Loading from "../../components/Loading";
 
 const {width:WIDTH} = Dimensions.get('window')
 
@@ -22,6 +24,8 @@ type TheaterPresenterProps = {
   onStateChange: (state: String) => void;
   togglePlaying: () => void;
   highlights: any[];
+  loading: boolean;
+  error: string;
 };
 
 const TheaterPresenter: React.FC<TheaterPresenterProps> = (props) => {
@@ -31,6 +35,8 @@ const TheaterPresenter: React.FC<TheaterPresenterProps> = (props) => {
     onStateChange,
     togglePlaying,
     highlights,
+    loading,
+    error
   } = props;
 
   const youtubePlayer = useRef();
@@ -51,6 +57,8 @@ const TheaterPresenter: React.FC<TheaterPresenterProps> = (props) => {
       />
       <ScrollContainer>
         <HighlightContainer>
+          {loading && <Loading/>}
+          {error && <Error error={error} />}
           {highlights &&
             highlights.map((highlight, i) => (
               <Highlight key={i} {...{ ...highlight, youtubeSeekTo }} />

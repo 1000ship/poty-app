@@ -8,7 +8,7 @@ const TheaterContainer:React.FC = ( {route:{params}} : any ) => {
   const {videoId = "lotCMV_HeVg"} = params as any;
 
   const [playing, setPlaying] = useState(false);
-  const [state, setState] = useState({highlights:[]});
+  const [state, setState] = useState({highlights:[], loading: true, error: null});
 
   const onStateChange = useCallback((state: String) => {
     if (state === "ended") {
@@ -23,8 +23,14 @@ const TheaterContainer:React.FC = ( {route:{params}} : any ) => {
 
   useEffect(function(){
     const init = async () => {
-      const {data} = await highlightApi.getHighlights(videoId);
-      setState(data);
+      setState(state => ({...state, loading: true}))
+      try {
+        const {data} = await highlightApi.getHighlights(videoId);
+        setState(state => ({...state, highlights: data.highlights, loading: false}));
+      }
+      catch (e) {
+        setState(state => ({...state, loading: false, error: e}))
+      }
     }
     init();
   }, [])
@@ -36,7 +42,7 @@ const TheaterContainer:React.FC = ( {route:{params}} : any ) => {
       playing={playing}
       onStateChange={onStateChange}
       togglePlaying={togglePlaying}
-      highlights={state.highlights}
+      {...state}
     ></TheaterPresenter>
   );
 };
