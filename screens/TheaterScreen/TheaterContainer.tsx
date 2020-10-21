@@ -10,7 +10,7 @@ const TheaterContainer:React.FC = ( {route:{params}} : any ) => {
   const [playing, setPlaying] = useState(false);
   const [state, setState] = useState({highlights:[], loading: true, error: null});
 
-  const onStateChange = useCallback((state: String) => {
+  const onChangeState = useCallback((state: String) => {
     if (state === "ended") {
       setPlaying(false);
       Alert.alert("video has finished playing!");
@@ -40,7 +40,7 @@ const TheaterContainer:React.FC = ( {route:{params}} : any ) => {
     <TheaterPresenter
       videoId={videoId}
       playing={playing}
-      onStateChange={onStateChange}
+      onChangeState={onChangeState}
       togglePlaying={togglePlaying}
       {...state}
     ></TheaterPresenter>

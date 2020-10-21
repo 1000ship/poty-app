@@ -21,7 +21,7 @@ const HighlightContainer = styled(View)``;
 type TheaterPresenterProps = {
   videoId: string;
   playing: boolean;
-  onStateChange: (state: String) => void;
+  onChangeState: (state: String) => void;
   togglePlaying: () => void;
   highlights: any[];
   loading: boolean;
@@ -32,7 +32,7 @@ const TheaterPresenter: React.FC<TheaterPresenterProps> = (props) => {
   const {
     videoId,
     playing,
-    onStateChange,
+    onChangeState,
     togglePlaying,
     highlights,
     loading,
@@ -51,7 +51,7 @@ const TheaterPresenter: React.FC<TheaterPresenterProps> = (props) => {
         height={(WIDTH * 9) / 16}
         play={playing}
         videoId={videoId}
-        onChangeState={onStateChange}
+        onChangeState={onChangeState}
       />
       <ScrollContainer>
         <HighlightContainer>
