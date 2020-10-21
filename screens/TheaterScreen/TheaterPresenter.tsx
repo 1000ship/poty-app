@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components/native";
-import { View } from "../../components/Themed";
+import { Text, View } from "../../components/Themed";
 import YoutubePlayer from "react-native-youtube-iframe";
 import { Button, Dimensions } from "react-native";
 import Highlight from "./Highlight";
@@ -8,7 +8,7 @@ import ScrollContainer from "../../components/ScrollContainer";
 import Error from "../../components/Error";
 import Loading from "../../components/Loading";
 
-const {width:WIDTH} = Dimensions.get('window')
+const { width: WIDTH } = Dimensions.get("window");
 
 const Container = styled(View)`
   display: flex;
@@ -36,32 +36,34 @@ const TheaterPresenter: React.FC<TheaterPresenterProps> = (props) => {
     togglePlaying,
     highlights,
     loading,
-    error
+    error,
   } = props;
 
   const youtubePlayer = useRef();
-  const youtubeSeekTo = (second:number) => () => {
-    if( youtubePlayer?.current )
-      youtubePlayer.current.seekTo(second);
-  }
-
+  const youtubeSeekTo = (second: number) => () => {
+    if (youtubePlayer?.current) youtubePlayer.current.seekTo(second);
+  };
 
   return (
     <Container>
       <YoutubePlayer
         ref={youtubePlayer}
-        height={WIDTH*9/16}
+        height={(WIDTH * 9) / 16}
         play={playing}
         videoId={videoId}
         onChangeState={onStateChange}
       />
       <ScrollContainer>
         <HighlightContainer>
-          {loading && <Loading/>}
+          {loading && <Loading />}
           {error && <Error error={error} />}
-          {highlights &&
-            highlights.map((highlight, i) => (
-              <Highlight key={i} {...{ ...highlight, youtubeSeekTo }} />
+          {!loading && !error && highlights &&
+            (highlights.length === 0 ? (
+              <Text>Highlights is yet. It needs more comments.</Text>
+            ) : (
+              highlights.map((highlight, i) => (
+                <Highlight key={i} {...{ ...highlight, youtubeSeekTo }} />
+              ))
             ))}
         </HighlightContainer>
       </ScrollContainer>

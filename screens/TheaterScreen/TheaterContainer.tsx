@@ -28,8 +28,8 @@ const TheaterContainer:React.FC = ( {route:{params}} : any ) => {
         const {data} = await highlightApi.getHighlights(videoId);
         setState(state => ({...state, highlights: data.highlights, loading: false}));
       }
-      catch (e) {
-        setState(state => ({...state, loading: false, error: e}))
+      catch (error) {
+        setState(state => ({...state, loading: false, error}))
       }
     }
     init();
