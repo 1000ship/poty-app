@@ -26,7 +26,7 @@ const TheaterContainer:React.FC = ( {route:{params}} : any ) => {
       setState(state => ({...state, loading: true}))
       try {
         const {data} = await highlightApi.getHighlights(videoId);
-        setState(state => ({...state, highlights: data.highlights, loading: false}));
+        setState(state => ({...state, highlights: data.highlights || [], loading: false}));
       }
       catch (error) {
         setState(state => ({...state, loading: false, error}))
@@ -34,7 +34,6 @@ const TheaterContainer:React.FC = ( {route:{params}} : any ) => {
     }
     init();
   }, [])
-
 
   return (
     <TheaterPresenter

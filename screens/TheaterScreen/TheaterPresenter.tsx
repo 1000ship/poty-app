@@ -18,6 +18,12 @@ const Container = styled(View)`
 
 const HighlightContainer = styled(View)``;
 
+const InfoText = styled(Text)`
+  font-weight: 600;
+  text-align: center;
+  padding-top: 10px;
+`;
+
 type TheaterPresenterProps = {
   videoId: string;
   playing: boolean;
@@ -59,7 +65,7 @@ const TheaterPresenter: React.FC<TheaterPresenterProps> = (props) => {
           {error && <Error error={error} />}
           {!loading && !error && highlights &&
             (highlights.length === 0 ? (
-              <Text>Highlights is yet. It needs more comments.</Text>
+              <InfoText>Highlights is yet. It needs more comments.</InfoText>
             ) : (
               highlights.map((highlight, i) => (
                 <Highlight key={i} {...{ ...highlight, youtubeSeekTo }} />
