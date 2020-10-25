@@ -16,12 +16,11 @@ export type HomePresenterProps = {
   videos: Object[];
   loading: boolean;
   error: Object | null;
-  selectVideo: (videoId: number) => () => void;
+  selectVideo: (videoId: number, title?: string) => () => void;
 };
 
 const HomePresenter = (props: HomePresenterProps) => {
   const { videos, loading, error, selectVideo } = props;
-
   return loading ? (
     <Loading />
   ) : (
