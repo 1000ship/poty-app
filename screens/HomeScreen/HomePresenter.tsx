@@ -43,7 +43,7 @@ const HomePresenter = (props: HomePresenterProps) => {
                 title={localized.title}
                 channelId={channelId}
                 channelTitle={channelTitle}
-                onPress={selectVideo(id)}
+                onPress={selectVideo(id, localized.title)}
               ></VideoThumbnail>
             );
           })}

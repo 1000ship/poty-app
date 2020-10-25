@@ -9,8 +9,8 @@ const SearchContainer = ({ navigation }: any) => {
     error: null,
   });
 
-  const selectVideo = (videoId: number) => () => {
-    navigation.navigate("Theater", { videoId });
+  const selectVideo = (videoId: number, title?: string) => () => {
+    navigation.navigate("Theater", { videoId, title });
   };
 
   const searchVideo = debounce(async (keyword: string) => {

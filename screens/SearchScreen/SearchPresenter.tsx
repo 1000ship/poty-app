@@ -76,7 +76,7 @@ const SearchPresenter = (props: SearchPresenterProps) => {
                     title={title}
                     channelId={channelId}
                     channelTitle={channelTitle}
-                    onPress={selectVideo(videoId)}
+                    onPress={selectVideo(videoId, title)}
                   ></VideoThumbnail>
                 );
               })}

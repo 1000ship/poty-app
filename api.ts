@@ -1,6 +1,7 @@
 import axios from "axios";
 import testCase from "./testCase.json";
 import testCase2 from "./testCase2.json";
+import { AsyncStorage } from 'react-native';
 
 const getRandomKey = () =>
   Math.random() < 0.3333
@@ -21,7 +22,8 @@ const potyAxios = axios.create({
 });
 
 export const youtubeApi = {
-  getVideos_Test: () => new Promise( (resolve, reject) => resolve({data:testCase2}) ),
+  getVideos_Test: () =>
+    new Promise((resolve, reject) => resolve({ data: testCase2 })),
   getVideos: ({
     maxResults,
     regionCode,
@@ -89,15 +91,61 @@ export const highlightApi = {
   },
 };
 
-
-export const debounce = ( func: Function, delay:number ) => {
+export const debounce = (func: Function, delay: number) => {
   var timeoutId: NodeJS.Timeout | null = null;
-  return function (...args : any) {
-    if( timeoutId !== null )
-      clearTimeout(timeoutId);
-    timeoutId = setTimeout( () => {
+  return function (...args: any) {
+    if (timeoutId !== null) clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
       func(...args);
       timeoutId = null;
     }, delay);
-  }
-}
+  };
+};
+
+const POTY_LIKE_STORAGE = "potyLikeStorage";
+export const likeApi = {
+  likeVideo: async (videoId: string) => {
+    try {
+      const likeList: string[] = JSON.parse(
+        await AsyncStorage.getItem(POTY_LIKE_STORAGE) || "[]"
+      );
+      const index = likeList.findIndex((id) => id === videoId);
+      if (index === -1) {
+        likeList.push(videoId);
+        await AsyncStorage.setItem(POTY_LIKE_STORAGE, JSON.stringify(likeList));
+      }
+      console.log( likeList )
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  unlikeVideo: async (videoId: string) => {
+    try {
+      const likeList: string[] = JSON.parse(
+        await AsyncStorage.getItem(POTY_LIKE_STORAGE) || "[]"
+      );
+      const index = likeList.findIndex((id) => id === videoId);
+      if (index !== -1) {
+        likeList.splice(index, 1);
+        await AsyncStorage.setItem(POTY_LIKE_STORAGE, JSON.stringify(likeList));
+      }
+      console.log( likeList )
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  isLikedVideo: async (videoId: string) => {
+    try {
+      const likeList: string[] = JSON.parse(
+        await AsyncStorage.getItem(POTY_LIKE_STORAGE) || "[]"
+      );
+      console.log( likeList )
+      const index = likeList.findIndex((id) => id === videoId);
+      console.log( index, index !== -1 )
+      return index !== -1;
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  },
+};
