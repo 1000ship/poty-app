@@ -114,7 +114,6 @@ export const likeApi = {
         likeList.push(videoId);
         await AsyncStorage.setItem(POTY_LIKE_STORAGE, JSON.stringify(likeList));
       }
-      console.log( likeList )
     } catch (error) {
       console.log(error);
     }
@@ -129,7 +128,6 @@ export const likeApi = {
         likeList.splice(index, 1);
         await AsyncStorage.setItem(POTY_LIKE_STORAGE, JSON.stringify(likeList));
       }
-      console.log( likeList )
     } catch (error) {
       console.log(error);
     }
@@ -139,9 +137,7 @@ export const likeApi = {
       const likeList: string[] = JSON.parse(
         await AsyncStorage.getItem(POTY_LIKE_STORAGE) || "[]"
       );
-      console.log( likeList )
       const index = likeList.findIndex((id) => id === videoId);
-      console.log( index, index !== -1 )
       return index !== -1;
     } catch (error) {
       console.log(error);
