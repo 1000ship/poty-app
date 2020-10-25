@@ -20,8 +20,10 @@ const HighlightContainer = styled(View)``;
 
 const InfoText = styled(Text)`
   font-weight: 600;
-  text-align: center;
   padding-top: 10px;
+
+  display: flex;
+  justify-content: center;
 `;
 
 type TheaterPresenterProps = {

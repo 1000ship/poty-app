@@ -1,12 +1,13 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "styled-components/native";
 import { Text, View } from "./Themed";
 
 const Container = styled(View)`
   width: 100%;
   height: 100%;
   padding: 100px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
 `;
 
 export default ({ error }) => {
