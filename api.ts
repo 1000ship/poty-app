@@ -17,7 +17,7 @@ const youtubeAxios = axios.create({
 });
 
 const potyAxios = axios.create({
-  baseURL: `https://poty.ga/`,
+  baseURL: process.env.REACT_NATIVE_POTY_API_URL,
 });
 
 export const youtubeApi = {
