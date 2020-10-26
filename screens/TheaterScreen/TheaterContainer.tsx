@@ -4,7 +4,7 @@ import { highlightApi } from "../../api";
 import TheaterPresenter from "./TheaterPresenter";
 
 const TheaterContainer: React.FC = ({ route: { params } }: any) => {
-  const { videoId = "lotCMV_HeVg" } = params as any;
+  const { videoId = "lotCMV_HeVg" } = params as {videoId: string};
 
   const [playing, setPlaying] = useState(false);
   const [state, setState] = useState({
