@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useRef, useEffect } from "react";
-import { Alert } from "react-native";
+import { Alert, DeviceEventEmitter } from "react-native";
 import { highlightApi } from "../../api";
 import TheaterPresenter from "./TheaterPresenter";
 
@@ -33,6 +33,10 @@ const TheaterContainer:React.FC = ( {route:{params}} : any ) => {
       }
     }
     init();
+
+    return () => {
+      DeviceEventEmitter.emit("popTheater");
+    }
   }, [])
 
   return (

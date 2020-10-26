@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Image, GestureResponderEvent } from "react-native";
+import { View, Image, GestureResponderEvent, DeviceEventEmitter } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import styled from "styled-components/native";
 import { Text } from "./Themed";
@@ -48,7 +48,11 @@ export default ({
   onPress,
 }: VideoThumbnailProps) => {
   const [isLiked, setLiked] = useState(false);
+
   useEffect(() => {
+    DeviceEventEmitter.addListener("popTheater", (e) => {
+      likeApi.isLikedVideo(id).then((value) => setLiked(value));
+    });
     likeApi.isLikedVideo(id).then((value) => setLiked(value));
   }, []);
   return (
