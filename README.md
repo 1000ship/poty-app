@@ -8,13 +8,13 @@
 ## Screenshots
 ### Home
 
-<img src="_readme/home.png" alt="home" width=425/> <img src="_readme/home-dark.png" alt="home-dark" width=425 />
+<img src="_readme/home.png" alt="home" width=225/> <img src="_readme/home-dark.png" alt="home-dark" width=225 />
 
 ### Search
 
-<img src="_readme/search.png" alt="search" width=425/> <img src="_readme/search-dark.png" alt="search-dark" width=425/>
+<img src="_readme/search.png" alt="search" width=225/> <img src="_readme/search-dark.png" alt="search-dark" width=225/>
 
 ### Theater
 
-<img src="_readme/theater.png" alt="theater" width=425/> <img src="_readme/theater-dark.png" alt="theater-dark" width=425/>
+<img src="_readme/theater.png" alt="theater" width=225/> <img src="_readme/theater-dark.png" alt="theater-dark" width=225/>
 
