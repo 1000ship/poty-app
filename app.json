@@ -20,13 +20,16 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "me.1000ship.poty"
+      "bundleIdentifier": "me.1000ship.poty",
+      "buildNumber": "1"
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
     },
     "android": {
-      "package": "me.chunship.POTY"
+      "package": "me.chunship.POTY",
+      "versionCode": 3,
+      "permissions": []
     }
   }
 }
