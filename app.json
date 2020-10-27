@@ -28,7 +28,7 @@
     },
     "android": {
       "package": "me.chunship.POTY",
-      "versionCode": 3,
+      "versionCode": 4,
       "permissions": []
     }
   }
