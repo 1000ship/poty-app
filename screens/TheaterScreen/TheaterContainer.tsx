@@ -16,7 +16,6 @@ const TheaterContainer: React.FC = ({ route: { params } }: any) => {
   const onChangeState = useCallback((state: String) => {
     if (state === "ended") {
       setPlaying(false);
-      Alert.alert("video has finished playing!");
     }
   }, []);
 
