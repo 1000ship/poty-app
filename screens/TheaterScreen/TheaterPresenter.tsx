@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import styled from "styled-components/native";
 import { Text, View } from "../../components/Themed";
 import YoutubePlayer, { YoutubeIframeRef } from "../../custom_modules/react-native-youtube-iframe";
-import { Button, Dimensions } from "react-native";
+import { Dimensions } from "react-native";
 import Highlight from "./Highlight";
 import ScrollContainer from "../../components/ScrollContainer";
 import Error from "../../components/Error";
