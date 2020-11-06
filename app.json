@@ -2,7 +2,7 @@
   "expo": {
     "name": "poty-app",
     "slug": "poty-app",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
@@ -28,7 +28,7 @@
     },
     "android": {
       "package": "me.chunship.POTY",
-      "versionCode": 4,
+      "versionCode": 6,
       "permissions": []
     }
   }
